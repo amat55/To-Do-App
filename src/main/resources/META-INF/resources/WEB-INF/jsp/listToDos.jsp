@@ -22,12 +22,13 @@
             <tr>
                 <td>${todo.id}</td>
                 <td>${todo.description}</td>
-                <td>${todo.targetDate}</td> 
+                <td>${todo.targetDate}</td>
                 <td>${todo.done}</td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+    <a href="add-todo" class="btn btn-success" >Add To-Do</a>
 
 </div>
 <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>

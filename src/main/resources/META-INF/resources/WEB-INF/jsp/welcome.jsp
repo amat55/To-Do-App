@@ -2,8 +2,11 @@
 <head>
     <title>Welcome to Login page</title>
 </head>
-<body>
-    <div>Welcome welcome, ${name}, ${password}</div>
-    <div><a href="listToDos">Manage</a> your to-do </div>
-</body>
+<div class="container">
+    <body>
+    <h2>Welcome welcome, ${name}</h2>
+    <a href="listToDos">Manage</a> your to-do
+
+    </body>
+</div>
 </html>
