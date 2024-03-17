@@ -11,7 +11,8 @@ import java.util.List;
 public class TodoService {
 
 
-   private static List<Todo> todos = new ArrayList<>();
+    private static List<Todo> todos = new ArrayList<>();
+    private static int todosCount = 3;
 
     static {
         todos.add(new Todo(1, "in28minutes", "Learn AWS",
@@ -22,7 +23,14 @@ public class TodoService {
                 LocalDate.now().plusYears(3), false));
     }
 
-    public List<Todo> findByUsername(String username){
+    public List<Todo> findByUsername(String username) {
         return todos;
+    }
+
+    public void addTodo(String name, String description,
+                        LocalDate targetDate, boolean isDone) {
+
+        Todo todo = new Todo(++todosCount, name, description, targetDate, isDone);
+        todos.add(todo);
     }
 }

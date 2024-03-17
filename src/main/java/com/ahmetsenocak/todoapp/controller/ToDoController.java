@@ -3,20 +3,25 @@ package com.ahmetsenocak.todoapp.controller;
 import com.ahmetsenocak.todoapp.TodoService;
 import com.ahmetsenocak.todoapp.toDo.Todo;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
 public class ToDoController {
+
+
+    private TodoService todoService;
+
     public ToDoController(TodoService todoService) {
         super();
         this.todoService = todoService;
     }
-
-    private TodoService todoService;
 
 
     @RequestMapping("listToDos")
@@ -28,14 +33,15 @@ public class ToDoController {
     }
 
 
-
     @RequestMapping(value = "add-todo", method = RequestMethod.GET)
-    public String showNewTodo(){
+    public String showNewTodo() {
         return "todo";
     }
 
     @RequestMapping(value = "add-todo", method = RequestMethod.POST)
-    public String addNewTodo(){
+    public String addNewTodo(@RequestParam String description, ModelMap modelMap) {
+        String name = (String) modelMap.get("name");
+        todoService.addTodo(name, description, LocalDate.now().plusYears(1), false);
         return "redirect:listToDos";
     }
 }
