@@ -1,9 +1,8 @@
 package com.ahmetsenocak.todoapp.toDo;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
-public class ToDo {
+public class Todo {
 
     private int id;
     private String name;
@@ -11,7 +10,7 @@ public class ToDo {
     private LocalDate targetDate;
     private boolean done;
 
-    public ToDo(int id, String name, String description, LocalDate targetDate, boolean done) {
+    public Todo(int id, String name, String description, LocalDate targetDate, boolean done) {
         this.id = id;
         this.name = name;
         this.description = description;
